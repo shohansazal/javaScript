@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>FormValidation</title>
+	<script>
+	var win;
+	function winOpen(){
+	win=window.open("","","width=250");
+	win.document.write("<center><h2>Form Output<hr></h2></center>");
+	}
+	function winClose(){
+	win.close();
+	}
+	function Add(){
+	var Name=document.myForm.name.value;
+	win.document.write("Name : "+Name+"<br>");
+	
+	var Email=document.myForm.emaild.value;
+	var i = Email.indexOf('@');
+	var j = Email.lastIndexOf('.');
+	if(i<1){
+		alert("You miss @ sign");
+	}else if(j<1){
+		alert("You miss . sign");
+	}else{
+		alert("Your Email Valid");
+	}
+	win.document.write("Email : "+Email+"<br>");
+	
+	var Gender=document.myForm.gender.value;
+	win.document.write("Gender : "+Gender+"<br>");
+	
+	var Location=document.myForm.location.value;
+	win.document.write("Location : "+Location+"<br>");
+	
+	var Subject="";
+	if(document.getElementById("java").checked==true)
+	Subject += "java ,";
+	if(document.getElementById("ddd").checked==true)
+	Subject += "ddd ,";
+	if(document.getElementById("nt").checked==true)
+	Subject += "nt ";
+	win.document.write("Subject : "+Subject+"<br>");
+	
+	var Address=document.myForm.address.value;
+	win.document.write("Address : "+Address);
+	}
+	
+	</script>
+</head>
+<body>
+	<pre>
+	<form name="myForm">
+	Name:
+	<input type="text" id="name" value="Shohan Rahaman"/>
+	
+	Email:
+	<input type="email" id="emaild" value="shohansazal@gmail.com"/>
+	
+	Gender:
+	<input type="radio" name="gender" value="Male" checked/>Male
+	<input type="radio" name="gender" value="Female" />Female
+	
+	Location:
+	<select id="location">
+	<option value="Dhaka">Dhaka</option>
+	<option value="Barisal">Barisal</option>
+	<option value="Khulna">Khulna</option>
+	</select>
+	
+	Subject:
+	<input type="checkbox" id="java"/>J2EE
+	<input type="checkbox" id="ddd"/>DDD
+	<input type="checkbox" id="nt"/>NT
+	
+	Address:
+	<textarea id="address">Just test Purpose.............</textarea>
+	</form>
+	</pre>
+	<button onclick="winOpen()">Open</button>
+	<button onclick="winClose()">Close</button>
+	<button onclick="Add()">Submit</button>
+	
+</body>
+</html>
